@@ -47,14 +47,28 @@ The system uses a relational model to manage data integrity:
 
 
 ---
-
 ## 📥 Getting Started
 
 ### Prerequisites
-* Python installed on your machine.
-* Flask library (`pip install flask`).
+* Python 3.x installed.
+* Flask library installed (pip install flask).
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/SvaraShah/Service-Desk-Web.git](https://github.com/SvaraShah/Service-Desk-Web.git)
+### Installation & Execution
+1.  *Clone the repository:*
+    bash
+    git clone [https://github.com/SvaraShah/Service-Desk-Web.git](https://github.com/SvaraShah/Service-Desk-Web.git)
+    
+2.  *Navigate to the directory and run the application:*
+    bash
+    cd Service-Desk-Web
+    python app.py
+    
+3.  *Access the Dashboard:*
+    Open your browser and visit: http://127.0.0.1:5000
+
+---
+
+## 👤 Author
+*Svara Pankilkumar Shah*
+B.Tech CSE with SAP Specialization | 2nd Year
+Parul University
