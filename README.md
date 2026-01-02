@@ -55,13 +55,10 @@ The system uses a relational model to manage data integrity:
 
 ### Installation & Execution
 1.  *Clone the repository:*
-    bash
-    git clone [https://github.com/SvaraShah/Service-Desk-Web.git](https://github.com/SvaraShah/Service-Desk-Web.git)
-    
+    git clone https://github.com/SvaraShah/Servicedesk-Ticket-Management-System---web.git
 2.  *Navigate to the directory and run the application:*
-    bash
     cd Service-Desk-Web
-    python app.py
+    python servicedesk.py
     
 3.  *Access the Dashboard:*
     Open your browser and visit: http://127.0.0.1:5000
