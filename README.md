@@ -1,2 +1,60 @@
-# Servicedesk-Ticket-Management-System---web
-This project is an enterprise-grade service request lifecycle manager. It simulates how large-scale organizations (using SAP Service Cloud) handle internal technical issues, prioritize them based on business impact, and track them until resolution.
+# 🛠️ Service Desk: Ticket Management System (TMS)
+
+## 📌 Project Overview
+The **Service Desk TMS** is an enterprise-grade incident management application designed to bridge the gap between software engineering and business operations. Inspired by **SAP Service Cloud** workflows, this system allows organizations to digitize their technical support lifecycle—from initial reporting to final resolution.
+
+This project demonstrates a clear **Client-Server Architecture**, moving from a basic Python logic to a functional web-based API integrated with a persistent database.
+
+---
+
+## 🏗️ System Architecture
+The application is built using a modern decoupled architecture:
+
+* **Frontend (Client):** Developed using **HTML5** and **CSS3** for a professional, responsive user interface.
+* **Backend (API):** A **Python (Flask)** API that handles business logic, priority processing, and server-side routing.
+* **Database (Storage):** **SQL (SQLite)** serves as the "Source of Truth," ensuring all tickets are stored persistently.
+
+
+
+---
+
+## 🚀 Key Features
+The system is built around three core enterprise functionalities:
+
+1.  **Create Ticket:** * Users can log incidents with detailed descriptions.
+    * Each entry is automatically timestamped for audit purposes.
+2.  **Assign Priorities:** * Mimics SAP business logic by allowing users to categorize tickets as **High, Medium, or Low**.
+    * High-priority tickets are visually flagged to ensure SLA (Service Level Agreement) compliance.
+3.  **Resolve Ticket:** * Enables a full lifecycle loop by allowing administrators to close tickets once the issue is fixed.
+    * Updates the database status in real-time.
+
+---
+
+## 🛠️ Tech Stack
+| Component | Technology |
+| :--- | :--- |
+| **Language** | Python 3.x |
+| **Framework** | Flask (Lightweight API) |
+| **UI/UX** | HTML5, CSS3 |
+| **Database** | SQL (SQLite) |
+| **Workflow** | SAP-Inspired Incident Management |
+
+---
+
+## 📊 Database Schema
+The system uses a relational model to manage data integrity:
+
+
+
+---
+
+## 📥 Getting Started
+
+### Prerequisites
+* Python installed on your machine.
+* Flask library (`pip install flask`).
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/SvaraShah/Service-Desk-Web.git](https://github.com/SvaraShah/Service-Desk-Web.git)
