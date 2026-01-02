@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SAP Service Desk UI</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 20px; }
+        .container { max-width: 900px; margin: auto; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .priority-HIGH { border-left: 5px solid #e74c3c; }
+        .priority-MEDIUM { border-left: 5px solid #f1c40f; }
+        .priority-LOW { border-left: 5px solid #2ecc71; }
+        .ticket-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee; }
+        .status-RESOLVED { text-decoration: line-through; color: #95a5a6; }
+        input, select, button { padding: 10px; margin: 5px; border-radius: 4px; border: 1px solid #ddd; }
+        button { background: #3498db; color: white; cursor: pointer; border: none; }
+        button:hover { background: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SAP Service Desk Portal</h1>
+        
+        <div class="card">
+            <h3>Raise New Service Request</h3>
+            <input type="text" id="desc" placeholder="Describe the issue..." style="width: 60%;">
+            <select id="priority">
+                <option value="LOW">Low</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="HIGH">High</option>
+            </select>
+            <button onclick="addTicket()">Submit Ticket</button>
+        </div>
+
+        <div class="card">
+            <h3>Active Tickets</h3>
+            <div id="ticket-list"></div>
+        </div>
+    </div>
+
+    <script>
+        async function loadTickets() {
+            const res = await fetch('/tickets');
+            const tickets = await res.json();
+            const list = document.getElementById('ticket-list');
+            list.innerHTML = '';
+            tickets.forEach(t => {
+                list.innerHTML += `
+                    <div class="ticket-item priority-${t.priority}">
+                        <div>
+                            <strong class="status-${t.status}">${t.description}</strong><br>
+                            <small>${t.created_at} | Priority: ${t.priority}</small>
+                        </div>
+                        ${t.status === 'OPEN' ? `<button onclick="resolveTicket(${t.id})">Resolve</button>` : '✅'}
+                    </div>`;
+            });
+        }
+
+        async function addTicket() {
+            const description = document.getElementById('desc').value;
+            const priority = document.getElementById('priority').value;
+            await fetch('/add_ticket', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({description, priority})
+            });
+            document.getElementById('desc').value = '';
+            loadTickets();
+        }
+
+        async function resolveTicket(id) {
+            await fetch(`/resolve/${id}`, {method: 'POST'});
+            loadTickets();
+        }
+
+        loadTickets();
+    </script>
+</body>
+</html>
